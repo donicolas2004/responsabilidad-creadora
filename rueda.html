@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rueda de Responsabilidad | Diagnóstico</title>
+    
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* --- CORE STYLES --- */
+        :root {
+            --brand-blue: #0066FC;
+            --brand-yellow: #FFD230;
+            --bg-deep: #050505;
+            --bg-card: #0a0a0a;
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+            --nav-height: 80px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-white);
+            line-height: 1.7;
+            overflow-x: hidden; /* Evita scroll horizontal global */
+            padding-top: var(--nav-height);
+        }
+
+        /* --- BACKGROUND --- */
+        .bg-mesh {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 102, 252, 0.05), transparent 70%);
+            background-size: cover;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: white; letter-spacing: -0.5px; }
+        .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--brand-blue); display: block; margin-bottom: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+
+        /* --- NAVEGACIÓN --- */
+        .top-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+            background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(15px); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-container { width: 100%; max-width: 1080px; display: flex; justify-content: space-between; align-items: center; padding: 0 24px; }
+        .nav-logo a { color: white; font-weight: 900; text-decoration: none; font-family: 'Montserrat'; font-size: 1.5rem; letter-spacing: -1px; }
+        .nav-menu { display: flex; list-style: none; gap: 40px; }
+        .nav-item { position: relative; padding: 10px 0; }
+        .nav-link { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #ddd; text-decoration: none; transition: 0.3s; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        .nav-item:hover .nav-link { color: var(--brand-blue); }
+        .arrow-down { font-size: 0.6rem; transition: transform 0.3s; }
+        .nav-item:hover .arrow-down { transform: rotate(180deg); }
+        .dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: #0a0a0a; border: 1px solid #222; min-width: 220px; list-style: none; padding: 10px 0; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown li a { display: block; padding: 12px 25px; color: #aaa; text-decoration: none; font-size: 0.85rem; font-family: 'Inter', sans-serif; transition: all 0.2s; border-left: 2px solid transparent; }
+        .dropdown li a:hover { background: rgba(0, 102, 252, 0.05); color: white; border-left-color: var(--brand-blue); }
+        .mobile-toggle { display: none; cursor: pointer; color: white; font-size: 1.5rem; }
+        .living-line { position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: #1a1a1a; overflow: hidden; }
+        .living-line::after { content: ''; position: absolute; top: 0; left: -50%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, var(--brand-blue), transparent); filter: drop-shadow(0 0 5px var(--brand-blue)); animation: scanLight 4s infinite linear; }
+        @keyframes scanLight { 0% { left: -50%; } 100% { left: 100%; } }
+
+        /* --- LAYOUT DEL TEST --- */
+        .test-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 50px;
+            align-items: start;
+        }
+
+        .questions-col {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid #222;
+            padding: 40px;
+            border-radius: 4px;
+        }
+
+        .chart-col {
+            position: sticky; top: 120px;
+            background: transparent; border: none; padding: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .chart-wrapper { width: 100%; max-width: 650px; aspect-ratio: 1/1; position: relative; }
+
+        /* --- SLIDERS --- */
+        .area-block { margin-bottom: 40px; border-bottom: 1px solid #1a1a1a; padding-bottom: 30px; }
+        .area-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .area-title { font-size: 1.1rem; color: white; font-weight: 700; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .area-score { font-family: 'Montserrat'; font-weight: 900; color: var(--brand-yellow); font-size: 1.5rem; }
+        .area-desc { font-size: 0.9rem; color: #888; margin-bottom: 25px; line-height: 1.5; }
+
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #333; border-radius: 3px; }
+        input[type=range]::-webkit-slider-thumb { height: 24px; width: 24px; border-radius: 50%; background: var(--brand-blue); cursor: pointer; -webkit-appearance: none; margin-top: -9px; box-shadow: 0 0 15px var(--brand-blue); transition: 0.2s; border: 2px solid white; }
+        input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.1); background: white; border-color: var(--brand-blue); }
+
+        .btn-calc { width: 100%; padding: 20px; background: var(--brand-yellow); color: black; font-family: 'Montserrat'; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+        .btn-calc:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 210, 48, 0.3); background: white; }
+
+        /* --- MODAL DE RESULTADOS --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
+            z-index: 9999; display: none; align-items: start; justify-content: center;
+            overflow-y: auto; padding: 40px 20px; opacity: 0; transition: opacity 0.4s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+
+        .modal-content {
+            background: #0a0a0a; border: 1px solid var(--brand-blue);
+            width: 100%; max-width: 900px;
+            position: relative; box-shadow: 0 0 80px rgba(0, 102, 252, 0.15);
+            margin: auto; border-radius: 4px; animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .close-modal { position: absolute; top: 20px; right: 20px; color: #666; font-size: 2rem; cursor: pointer; z-index: 10; transition: 0.3s; line-height: 1; }
+        .close-modal:hover { color: var(--brand-yellow); }
+
+        .modal-header { padding: 40px; text-align: center; border-bottom: 1px solid #222; background: #0f0f0f; }
+        .diagnosis-score { font-size: 3.5rem; font-weight: 900; color: white; line-height: 1; margin: 10px 0; }
+        .diagnosis-level { font-size: 1rem; color: var(--brand-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+        .modal-body { padding: 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
+        
+        .result-chart-container { width: 100%; aspect-ratio: 1/1; position: relative; }
+
+        .strategy-section { margin-bottom: 50px; background: rgba(0, 102, 252, 0.03); border-left: 4px solid var(--brand-blue); padding: 30px; }
+        .strategy-title { color: var(--brand-blue); font-weight: 800; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .strategy-text { color: #ddd; font-size: 1.1rem; line-height: 1.7; }
+
+        .breakdown-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+        .breakdown-item { border-bottom: 1px solid #222; padding-bottom: 20px; }
+        .bd-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .bd-title { font-weight: 700; color: white; font-size: 1rem; }
+        .bd-score { font-weight: 900; }
+        
+        .score-low { color: #FF5555; } .score-med { color: var(--brand-yellow); } .score-high { color: #55FF55; }
+        .bd-text { font-size: 0.9rem; color: #999; line-height: 1.5; }
+
+        .modal-footer { padding: 40px; text-align: center; border-top: 1px solid #222; background: #0f0f0f; }
+        .modal-actions { display: flex; gap: 20px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .btn-modal { padding: 18px 40px; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; text-decoration: none; border: 1px solid transparent; transition: 0.3s; letter-spacing: 1px; }
+        .btn-modal-primary { background: var(--brand-blue); color: white; }
+        .btn-modal-primary:hover { background: white; color: black; }
+        .btn-modal-outline { border-color: var(--brand-yellow); color: var(--brand-yellow); }
+        .btn-modal-outline:hover { background: var(--brand-yellow); color: black; }
+
+        /* ACCIONES COMPARTIR */
+        .share-actions { margin-top: 30px; border-top: 1px solid #222; padding-top: 20px; display: flex; gap: 20px; justify-content: center; }
+        .btn-share { background: transparent; border: none; color: #666; font-family: 'Inter'; font-size: 0.85rem; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .btn-share:hover { color: white; }
+
+        /* --- FOOTER --- */
+        .final-section { padding-top: 80px; padding-bottom: 60px; border-top: 1px solid #111; margin-top: 100px; }
+        .final-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+        .social-title { font-size: 0.9rem; color: #ccc; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .social-icons-row { display: flex; gap: 15px; }
+        .social-box { width: 50px; height: 50px; background: #111; border: 1px solid #333; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: white; text-decoration: none; }
+        .social-box:hover { background: var(--brand-blue); border-color: var(--brand-blue); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 102, 252, 0.3); }
+        .social-box svg { width: 22px; height: 22px; fill: currentColor; }
+        .footer-legal { border-top: 1px solid #1a1a1a; padding-top: 40px; text-align: center; }
+        .legal-text { font-size: 0.75rem; color: #444; margin-top: 10px; font-weight: 400; }
+
+        /* --- RESPONSIVE / MÓVIL --- */
+        @media (max-width: 900px) {
+            /* General */
+            .container { padding: 0 20px; width: 100%; }
+            .test-grid { 
+                grid-template-columns: 1fr; 
+                gap: 40px; 
+                display: flex; 
+                flex-direction: column-reverse; /* Gráfico arriba, inputs abajo */
+            }
+            
+            /* Gráfico Móvil */
+            .chart-col { 
+                position: relative; 
+                top: 0; 
+                width: 100%; 
+                margin-bottom: 20px; 
+                display: flex;
+                justify-content: center;
+            }
+            .chart-wrapper { 
+                width: 100%; 
+                max-width: 350px; /* Tamaño controlado para móvil */
+                aspect-ratio: 1/1; 
+            }
+            
+            /* Inputs Móvil */
+            .questions-col {
+                width: 100%;
+                padding: 20px; /* Menos padding */
+            }
+
+            /* Modal Móvil */
+            .modal-content {
+                width: 95%; /* Que quepa en pantalla */
+                margin: 20px auto;
+            }
+            .modal-body { 
+                display: flex; 
+                flex-direction: column; /* Apilar contenido */
+                padding: 20px; 
+            }
+            .result-chart-container {
+                width: 250px; /* Gráfico resultado pequeño */
+                height: 250px;
+                margin: 0 auto 30px auto;
+            }
+            .diagnosis-score { font-size: 2.5rem; } /* Puntaje legible */
+            
+            /* Botones Modal */
+            .modal-actions { flex-direction: column; gap: 15px; }
+            .btn-modal { width: 100%; text-align: center; }
+            .share-actions { flex-direction: column; align-items: center; }
+
+            /* Menú Móvil */
+            .mobile-toggle { display: block; position: absolute; right: 20px; top: 25px; z-index: 1001; }
+            .nav-container { justify-content: center; padding: 0; }
+            .nav-menu {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: #050505; flex-direction: column; align-items: center; justify-content: flex-start;
+                gap: 20px; transition: right 0.4s ease; padding-top: 100px; z-index: 1000;
+                overflow-y: auto;
+            }
+            .nav-menu.active { right: 0; }
+            .nav-item { width: 100%; text-align: center; padding: 0; display: block; }
+            .nav-link { font-size: 1.5rem; justify-content: center; width: 100%; padding: 15px 0; display: flex; }
+            .dropdown {
+                position: static !important; transform: none !important; opacity: 1 !important; visibility: visible !important;
+                background: #111; border: none; box-shadow: none; width: 100%; display: none; padding: 0; margin-top: 15px; text-align: center;
+            }
+            .nav-item.active .dropdown { display: block; animation: fadeIn 0.3s; }
+            .dropdown li a { color: #aaa; font-size: 1.1rem; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); display: block; width: 100%; }
+
+            /* Footer Móvil */
+            .final-grid { display: flex; flex-direction: column-reverse; text-align: center; }
+            .social-icons-row { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-mesh"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="index.html">RC</a></div>
+            <div class="mobile-toggle" onclick="toggleMenu()">&#9776;</div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item" onclick="toggleDropdown(this)">
+                    <span class="nav-link">RECURSOS GRATUITOS <span class="arrow-down">&#9662;</span></span>
+                    <ul class="dropdown">
+                        <li><a href="recursos.html">Material Descargable</a></li>
+                        <li><a href="rueda.html" style="color:white;">Rueda de Responsabilidad</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" onclick="toggleDropdown(this)">
+                    <span class="nav-link">TRABAJA CONMIGO <span class="arrow-down">&#9662;</span></span>
+                    <ul class="dropdown">
+                        <li><a href="1a1.html">1 a 1</a></li>
+                        <li><a href="proyectos.html">Proyectos y Ponencias</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="living-line"></div>
+    </nav>
+
+    <!-- HEADER -->
+    <section style="padding: 100px 0 40px; text-align: center;">
+        <div class="container">
+            <span class="uppercase">Herramienta de Diagnóstico</span>
+            <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">LA RUEDA DE<br><span style="color:var(--brand-yellow);">RESPONSABILIDAD CREADORA</span></h1>
+            <p style="color:#aaa; max-width: 600px; margin: 0 auto 10px;">
+                Un diagnóstico honesto para ver dónde estás y decidir cómo avanzar.
+            </p>
+            <p style="color:var(--brand-blue); font-size: 0.9rem; font-weight: 600; margin-top: 20px;">
+                INSTRUCCIONES: Puntúa del 0 al 10 según tu realidad de HOY.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTERFAZ PRINCIPAL -->
+    <section class="container test-grid">
+        
+        <!-- PREGUNTAS (IZQUIERDA) -->
+        <div class="questions-col">
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">1. Claridad Mental</h3><span class="area-score" id="val-0">5</span></div>
+                <p class="area-desc">Capacidad de pensar con orden, tomar decisiones y no vivir en confusión constante.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(0, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">2. Gestión Emocional</h3><span class="area-score" id="val-1">5</span></div>
+                <p class="area-desc">Cómo gestionas tus emociones sin reprimirlas ni dejar que te dominen.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(1, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">3. Responsabilidad Personal</h3><span class="area-score" id="val-2">5</span></div>
+                <p class="area-desc">Grado en el que asumes tu vida sin culpar, justificarte o delegar tu poder.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(2, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">4. Sistema de Creencias</h3><span class="area-score" id="val-3">5</span></div>
+                <p class="area-desc">Creencias que hoy sostienen o limitan tu manera de vivir y decidir.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(3, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">5. Acción y Disciplina</h3><span class="area-score" id="val-4">5</span></div>
+                <p class="area-desc">Capacidad de ejecutar lo que decides y sostenerlo en el tiempo.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(4, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">6. Propósito y Dirección</h3><span class="area-score" id="val-5">5</span></div>
+                <p class="area-desc">Claridad sobre hacia dónde vas y por qué haces lo que haces.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(5, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">7. Relaciones Conscientes</h3><span class="area-score" id="val-6">5</span></div>
+                <p class="area-desc">Calidad, límites y coherencia en tus vínculos personales y profesionales.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(6, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">8. Energía y Cuerpo</h3><span class="area-score" id="val-7">5</span></div>
+                <p class="area-desc">Relación con tu cuerpo, energía vital, descanso y autocuidado real.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(7, this.value)">
+            </div>
+            <div class="area-block">
+                <div class="area-header"><h3 class="area-title">9. Liderazgo Interno</h3><span class="area-score" id="val-8">5</span></div>
+                <p class="area-desc">Tu capacidad de guiarte a ti mismo sin depender de estímulos externos.</p>
+                <input type="range" min="0" max="10" value="5" oninput="updateChart(8, this.value)">
+            </div>
+
+            <button class="btn-calc" onclick="analyzeResults()">👉 VER MI RESULTADO</button>
+        </div>
+
+        <!-- COLUMNA DERECHA: GRÁFICO FLOTANTE -->
+        <div class="chart-col">
+            <div class="chart-wrapper">
+                <canvas id="lifeWheel"></canvas>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- MODAL DE RESULTADOS -->
+    <div class="modal-overlay" id="resultsModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            
+            <div class="modal-header">
+                <span class="uppercase">Diagnóstico Completado</span>
+                <div class="diagnosis-score" id="modalScore">0.0</div>
+                <div class="diagnosis-level" id="modalLevel">NIVEL</div>
+                <!-- Contenedor gráfico resultado (reducido en móvil por CSS) -->
+                <div class="result-chart-container">
+                    <canvas id="resultChart"></canvas>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                
+                <!-- 1. ESTRATEGIA -->
+                <div class="strategy-section">
+                    <p class="strategy-title">🚀 ESTRATEGIA DE PALANCA</p>
+                    <div class="strategy-text" id="leverageText"></div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color:white; border-bottom: 1px solid #333; padding-bottom: 10px;">AUDITORÍA DETALLADA</h3>
+                </div>
+
+                <!-- 2. DESGLOSE -->
+                <div class="breakdown-grid" id="breakdownContainer"></div>
+
+            </div>
+
+            <div class="modal-footer">
+                <p style="color: white; font-weight: 700; margin-bottom: 5px;">"Esta rueda no cambia tu vida. La decisión sí."</p>
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">¿Cuál es tu siguiente paso?</p>
+                
+                <div class="modal-actions">
+                    <a href="https://www.skool.com/responsabilidad-creadora-7552/about" target="_blank" class="btn-modal btn-modal-primary">UNIRME A LA COMUNIDAD</a>
+                    <a href="1a1.html" class="btn-modal btn-modal-outline">AGENDAR SESIÓN DE CLARIDAD</a>
+                </div>
+
+                <!-- COMPARTIR -->
+                <div class="share-actions">
+                    <button class="btn-share" onclick="downloadResultImage()"><span>⬇</span> Descargar Mis Resultados</button>
+                    <button class="btn-share" onclick="shareResultImage()"><span>🔗</span> Compartir Resultados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <section class="final-section">
+        <div class="container final-grid">
+            <div>
+                <h4 class="social-title">¿QUIERES CONOCER MÁS DE MÍ?</h4>
+                <div class="social-icons-row">
+                    <a href="https://www.instagram.com/donicolasosorio?igsh=MWY2and1cHJyMTJ3Yw%3D%3D&utm_source=qr" target="_blank" class="social-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    
+                    <a href="https://youtube.com/@donicolasosorio?si=M-escEHUxzF5gfIL" target="_blank" class="social-box">
+                        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="container footer-legal">
+                <p style="font-size: 0.9rem; color: #555;">© 2026 Responsabilidad Creadora. Todos los derechos reservados.</p>
+                <p class="legal-text">
+                    No promovemos resultados. No vendemos milagros, vendemos responsabilidad, claridad y estructura.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LÓGICA MAESTRA -->
+    <script>
+        const areas = [
+            'Claridad Mental', 'Gestión Emocional', 'Responsabilidad Personal', 
+            'Sistema de Creencias', 'Acción y Disciplina', 'Propósito y Dirección', 
+            'Relaciones Conscientes', 'Energía y Cuerpo', 'Liderazgo Interno'
+        ];
+
+        const AREA_DATA = {
+            'Claridad Mental': {
+                low: "Tu mente está saturada. Confusión constante y rumiación.",
+                med: "Tienes momentos de claridad, pero se pierden bajo presión.",
+                high: "Tu mente es un instrumento de calma y decisión.",
+                action_low: "Agenda 10 min de silencio absoluto diario sin pantallas."
+            },
+            'Gestión Emocional': {
+                low: "Las emociones te dominan o las reprimes. Drama o desconexión.",
+                med: "Reconoces lo que sientes, pero te cuesta regularte.",
+                high: "Emociones integradas. Presencia sin drama.",
+                action_low: "Cuando sientas intensidad, respira 5 min antes de actuar."
+            },
+            'Responsabilidad Personal': {
+                low: "Culpa externa constante. El contexto define tu vida.",
+                med: "Reconoces tu parte, pero aún te justificas.",
+                high: "Responsabilidad radical sin culpa.",
+                action_low: "Elimina la queja de tu vocabulario por 24 horas."
+            },
+            'Sistema de Creencias': {
+                low: "Te saboteas sin darte cuenta. Creencias invisibles.",
+                med: "Identificas límites pero sigues obedeciéndolos.",
+                high: "Tus creencias sirven a tu visión.",
+                action_low: "Escribe una creencia limitante y cuestiónala."
+            },
+            'Acción y Disciplina': {
+                low: "Procrastinación y mucha intención sin ejecución.",
+                med: "Arrancas con fuerza y abandonas. Inconstancia.",
+                high: "Disciplina integrada. Actúas sin motivación.",
+                action_low: "Define una sola micro-acción diaria y cúmplela."
+            },
+            'Propósito y Dirección': {
+                low: "Vives reaccionando. Piloto automático.",
+                med: "Ideas difusas. Sabes lo que no quieres, no lo que sí.",
+                high: "Visión clara que guía tus decisiones.",
+                action_low: "Escribe: ¿Cómo quiero vivir en 3 años?"
+            },
+            'Relaciones Conscientes': {
+                low: "Dependencia, conflicto o evitación.",
+                med: "Relaciones funcionales pero superficiales.",
+                high: "Vínculos maduros, honestos y nutritivos.",
+                action_low: "Ten esa conversación pendiente sin atacar."
+            },
+            'Energía y Cuerpo': {
+                low: "Desconexión y fatiga. Tratas al cuerpo como un robot.",
+                med: "Cuidado intermitente. Escuchas el cuerpo tarde.",
+                high: "Cuerpo integrado como aliado vital.",
+                action_low: "Duerme 30 min más hoy. Es innegociable."
+            },
+            'Liderazgo Interno': {
+                low: "Buscas validación externa para moverte.",
+                med: "Liderazgo inestable. Dudas de tu autoridad.",
+                high: "Te gobiernas a ti mismo. Autoridad interna.",
+                action_low: "Toma una decisión hoy solo porque tú lo dices."
+            }
+        };
+
+        let dataValues = [5, 5, 5, 5, 5, 5, 5, 5, 5];
+        let lifeChart, resultChartInstance;
+
+        function initMainChart() {
+            const ctx = document.getElementById('lifeWheel').getContext('2d');
+            lifeChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: areas,
+                    datasets: [{
+                        label: 'Nivel Actual',
+                        data: dataValues,
+                        backgroundColor: 'rgba(0, 102, 252, 0.4)', 
+                        borderColor: '#0066FC', 
+                        pointBackgroundColor: '#FFD230', 
+                        pointBorderColor: '#fff',
+                        borderWidth: 3, pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            pointLabels: { color: 'white', font: { family: 'Montserrat', size: 11, weight: 'bold' } },
+                            suggestedMin: 0, suggestedMax: 10, ticks: { display: false }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        function updateChart(index, value) {
+            document.getElementById(`val-${index}`).innerText = value;
+            lifeChart.data.datasets[0].data[index] = value;
+            lifeChart.update();
+        }
+
+        function analyzeResults() {
+            const values = lifeChart.data.datasets[0].data;
+            const numValues = values.map(v => parseInt(v));
+            
+            const sum = numValues.reduce((a, b) => a + b, 0);
+            const avg = (sum / numValues.length).toFixed(1);
+            
+            let level = "";
+            if (avg <= 3.9) level = "DESCONEXIÓN Y PILOTO AUTOMÁTICO";
+            else if (avg <= 6.9) level = "CONCIENCIA PRESENTE, FALTA COHERENCIA";
+            else level = "BUENA BASE, FALTA INTEGRACIÓN";
+
+            const maxVal = Math.max(...numValues);
+            const minVal = Math.min(...numValues);
+            
+            const maxIndices = numValues.map((val, idx) => val === maxVal ? idx : -1).filter(idx => idx !== -1);
+            const minIndices = numValues.map((val, idx) => val === minVal ? idx : -1).filter(idx => idx !== -1);
+            
+            const maxIndex = maxIndices[0];
+            const minIndex = minIndices[0];
+
+            const strongArea = areas[maxIndex];
+            const weakArea = areas[minIndex];
+
+            let strategy = "", action = "";
+
+            if (maxVal === minVal) {
+                strategy = `Tu rueda es plana (${maxVal}/10). Esto indica estancamiento. Rompe la inercia.`;
+                action = "Elige el área de 'Acción y Disciplina' y sube la intensidad un 20% esta semana.";
+            } else {
+                strategy = `Tu mayor fortaleza hoy es <strong>${strongArea}</strong> (${maxVal}/10).<br>
+                            Tu punto de fuga es <strong>${weakArea}</strong> (${minVal}/10).<br><br>
+                            <strong>LA CLAVE:</strong> Usa tu capacidad en <strong>${strongArea}</strong> para sostener los cambios en <strong>${weakArea}</strong>.`;
+                action = AREA_DATA[weakArea].action_low;
+            }
+
+            document.getElementById('modalScore').innerText = avg;
+            document.getElementById('modalLevel').innerText = level;
+            document.getElementById('leverageText').innerHTML = `${strategy}<br><br><strong style="color:var(--brand-yellow)">👉 ACCIÓN SUGERIDA:</strong> ${action}`;
+
+            const container = document.getElementById('breakdownContainer');
+            container.innerHTML = '';
+
+            areas.forEach((area, index) => {
+                const score = numValues[index];
+                let colorClass = score <= 2 ? 'score-low' : (score <= 8 ? 'score-med' : 'score-high');
+                let specificText = "";
+                if(score <= 2) specificText = AREA_DATA[area].low;
+                else if(score <= 8) specificText = AREA_DATA[area].med;
+                else specificText = AREA_DATA[area].high;
+
+                const item = document.createElement('div');
+                item.className = 'breakdown-item';
+                item.innerHTML = `
+                    <div class="bd-header">
+                        <span class="bd-title">${area}</span>
+                        <span class="bd-score ${colorClass}">${score}/10</span>
+                    </div>
+                    <p class="bd-text">${specificText}</p>
+                `;
+                container.appendChild(item);
+            });
+
+            document.getElementById('resultsModal').classList.add('active');
+            renderResultChart(numValues);
+        }
+
+        function renderResultChart(data) {
+            const ctx = document.getElementById('resultChart').getContext('2d');
+            if(resultChartInstance) resultChartInstance.destroy();
+
+            resultChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: areas,
+                    datasets: [{
+                        label: 'Tu Mapa', data: data,
+                        backgroundColor: 'rgba(255, 210, 48, 0.2)', borderColor: '#FFD230',
+                        pointBackgroundColor: '#fff', borderWidth: 2, pointRadius: 3
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255,255,255,0.1)' },
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            pointLabels: { display: false },
+                            suggestedMin: 0, suggestedMax: 10, ticks: { display: false }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        async function createWatermarkedCanvas() {
+            const width = 1080;
+            const height = 1350;
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+
+            const gradient = ctx.createRadialGradient(width/2, height/2, 100, width/2, height/2, 800);
+            gradient.addColorStop(0, '#1a1a1a');
+            gradient.addColorStop(1, '#000000');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 60px Montserrat';
+            ctx.textAlign = 'center';
+            ctx.fillText('MI RUEDA DE RESPONSABILIDAD', width/2, 120);
+
+            const score = document.getElementById('modalScore').innerText;
+            ctx.fillStyle = '#FFD230';
+            ctx.font = 'bold 150px Montserrat';
+            ctx.fillText(score, width/2, 280);
+            
+            ctx.fillStyle = '#888';
+            ctx.font = '30px Montserrat';
+            ctx.fillText('PUNTAJE GLOBAL', width/2, 330);
+
+            const chartImg = document.getElementById('lifeWheel').toDataURL('image/png');
+            const img = new Image();
+            img.src = chartImg;
+            await new Promise(r => img.onload = r);
+            const chartSize = 800;
+            ctx.drawImage(img, (width-chartSize)/2, 400, chartSize, chartSize);
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.font = 'bold 30px Montserrat';
+            ctx.fillText('RESPONSABILIDAD CREADORA © 2026', width/2, height - 50);
+
+            return canvas;
+        }
+
+        async function downloadResultImage() {
+            const canvas = await createWatermarkedCanvas();
+            const link = document.createElement('a');
+            link.download = 'Mi_Rueda_RC_2026.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        async function shareResultImage() {
+            const canvas = await createWatermarkedCanvas();
+            canvas.toBlob(async (blob) => {
+                const file = new File([blob], 'rueda_rc.png', { type: 'image/png' });
+                if (navigator.share && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({ files: [file], title: 'Mi Rueda', text: 'Acabo de auditar mi vida.' });
+                    } catch (err) { console.error(err); }
+                } else {
+                    alert("Tu dispositivo no soporta compartir imagen directa. Se descargará en su lugar.");
+                    downloadResultImage();
+                }
+            });
+        }
+
+        function closeModal() { document.getElementById('resultsModal').classList.remove('active'); }
+        document.addEventListener('DOMContentLoaded', () => { initMainChart(); });
+
+        /* Menú Móvil */
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+        function toggleDropdown(element) { if (window.innerWidth <= 900) element.classList.toggle('active'); }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '990007067039400');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=990007067039400&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Automático a Consciente | Reto de 3 Días</title>
+    
+    <!-- Fuentes: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans:['Montserrat', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            blue: '#0066FC',
+                            yellow: '#FFD230',
+                            dark: '#040b19',
+                            card: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #040b19; color: #ffffff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        
+        /* Animaciones de scroll (Slide Up / Fade In) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos de botones - Efecto Resplandor Premium */
+        .btn-glow {
+            background-color: #FFD230;
+            color: #040b19;
+            box-shadow: 0 0 25px rgba(255, 210, 48, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 40px rgba(255, 210, 48, 0.7);
+            transform: scale(1.05) translateY(-2px);
+        }
+
+        /* Degradado suave para el Hero en modo oscuro */
+        .bg-gradient-radial {
+            background: radial-gradient(circle at center, rgba(0, 102, 252, 0.15) 0%, rgba(4, 11, 25, 1) 70%);
+        }
+
+        /* Texto subrayado con marcador amarillo */
+        .highlight-yellow {
+            background: linear-gradient(180deg, transparent 60%, rgba(255, 210, 48, 0.3) 60%);
+            display: inline;
+        }
+        
+        .text-shadow { text-shadow: 0 4px 15px rgba(0, 102, 252, 0.6); }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- BLOQUE 1 – HERO (PRIMER IMPACTO) -->
+    <header class="bg-gradient-radial relative pt-12 pb-20 md:pt-24 md:pb-32 px-6 overflow-hidden">
+        <!-- Elementos gráficos de fondo -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue opacity-10 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-yellow opacity-5 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
+            <!-- Texto Hero -->
+            <div class="w-full md:w-3/5 text-center md:text-left reveal active">
+                <span class="bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow px-4 py-1.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest mb-6 inline-block shadow-sm">
+                    Reto Gratuito de 3 Días en Vivo
+                </span>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-[1.05] text-white mb-6 tracking-tight">
+                    DE AUTOMÁTICO A <span class="text-brand-blue text-shadow">CONSCIENTE</span>
+                </h1>
+                
+                <p class="text-lg md:text-2xl font-semibold text-gray-300 mb-6 leading-snug">
+                    De vivir en piloto automático repitiendo los mismos errores en tus relaciones y dinero <br class="hidden md:block">
+                    <span class="highlight-yellow text-white">a empezar a tomar decisiones conscientes que cambian tu vida en 3 días.</span>
+                </p>
+
+                <p class="text-base md:text-lg text-gray-400 mb-10 font-medium">
+                    3 masterclass en vivo donde entenderás por qué estás donde estás...<br>
+                    y cómo empezar a cambiarlo de verdad.
+                </p>
+                
+                <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-glow inline-flex items-center justify-center gap-3 font-black text-lg md:text-xl px-8 py-5 rounded-xl uppercase tracking-wide w-full md:w-auto">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> UNIRME AL GRUPO DE WHATSAPP
+                </a>
+                <p class="mt-4 text-sm font-bold text-gray-500 uppercase tracking-widest">
+                    Acceso gratuito <span class="text-brand-blue">•</span> Plazas limitadas
+                </p>
+            </div>
+
+            <!-- Imagen Hero (CONECTADA A SUPABASE) -->
+            <div class="w-full md:w-2/5 reveal active">
+                <div class="relative">
+                    <!-- Marco decorativo -->
+                    <div class="absolute inset-0 bg-brand-blue rounded-3xl transform translate-x-4 translate-y-4 opacity-20"></div>
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/imagen-fundador.jpg" alt="Nicolás" class="relative z-10 w-full h-auto rounded-3xl shadow-2xl border-4 border-white/10 object-cover aspect-[4/5] md:aspect-auto">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BLOQUE 2 – IDENTIFICACIÓN (DOLOR) -->
+    <section class="py-20 md:py-28 px-6 bg-[#060e20] reveal border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                    Si sientes que esto te pasa... <br><span class="text-brand-blue">este reto es para ti</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                <div class="bg-brand-card border border-white/10 shadow-lg p-8 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-red-900/30 text-red-500 flex items-center justify-center shrink-0 text-xl border border-red-500/20"><i class="fa-solid fa-person-walking-arrow-loop-left"></i></div>
+                    <p class="text-lg font-semibold text-gray-200">Sabes lo que tienes que hacer… pero no lo haces.</p>
+                </div>
+                
+                <div class="bg-brand-card border border-white/10 shadow-lg p-8 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-red-900/30 text-red-500 flex items-center justify-center shrink-0 text-xl border border-red-500/20"><i class="fa-solid fa-rotate-right"></i></div>
+                    <p class="text-lg font-semibold text-gray-200">Repites los mismos errores en tus relaciones o tu dinero.</p>
+                </div>
+
+                <div class="bg-brand-card border border-white/10 shadow-lg p-8 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-red-900/30 text-red-500 flex items-center justify-center shrink-0 text-xl border border-red-500/20"><i class="fa-solid fa-lock"></i></div>
+                    <p class="text-lg font-semibold text-gray-200">Te sientes bloqueado/a o en un bucle constante del que no sales.</p>
+                </div>
+
+                <div class="bg-brand-card border border-white/10 shadow-lg p-8 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-red-900/30 text-red-500 flex items-center justify-center shrink-0 text-xl border border-red-500/20"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <p class="text-lg font-semibold text-gray-200">Tomas decisiones impulsadas desde la duda o el miedo.</p>
+                </div>
+
+                <div class="bg-brand-card border border-white/10 shadow-lg p-8 rounded-2xl flex items-start gap-4 md:col-span-2 md:w-2/3 mx-auto">
+                    <div class="w-12 h-12 rounded-full bg-red-900/30 text-red-500 flex items-center justify-center shrink-0 text-xl border border-red-500/20"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <p class="text-lg font-semibold text-gray-200">Sientes que podrías estar en otro nivel en tu vida… pero no sabes cómo llegar.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <div class="inline-block bg-brand-yellow/10 px-8 py-4 rounded-xl border border-brand-yellow/30">
+                    <p class="text-2xl font-black uppercase text-white">No es falta de capacidad. <br><span class="text-brand-blue">Es piloto automático.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 3 – REVELACIÓN -->
+    <section class="py-24 px-6 bg-brand-dark text-white text-center reveal border-y border-white/5 relative overflow-hidden">
+        <!-- Luz sutil de fondo -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full mix-blend-screen blur-[100px]"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <i class="fa-solid fa-lightbulb text-brand-yellow text-6xl mb-8"></i>
+            <h2 class="text-3xl md:text-5xl font-black uppercase mb-10 leading-tight">
+                El problema no es lo que haces… <br><span class="text-brand-yellow">es desde dónde lo haces</span>
+            </h2>
+            
+            <p class="text-xl md:text-2xl font-medium leading-relaxed mb-8 text-gray-300">
+                La mayoría de personas intenta cambiar su vida desde la acción, 
+                pero sin entender los patrones que la están controlando.
+            </p>
+            
+            <div class="bg-brand-blue/20 backdrop-blur-sm border border-brand-blue/50 p-6 rounded-2xl inline-block mb-10">
+                <p class="text-2xl md:text-3xl font-black text-brand-yellow uppercase">
+                    Por eso vuelves al mismo punto una y otra vez.
+                </p>
+            </div>
+            
+            <p class="text-lg md:text-xl font-semibold text-gray-200 max-w-2xl mx-auto">
+                En este reto no vas a motivarte.<br>
+                Vas a entender cómo funciona tu mente… y cambiar tu forma de decidir.
+            </p>
+        </div>
+    </section>
+
+    <!-- BLOQUE 4 – QUÉ ES ESTE RETO -->
+    <section class="py-20 md:py-28 px-6 bg-[#040b19] reveal">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-black uppercase text-white mb-8">Qué vas a vivir en estos <span class="text-brand-blue text-shadow">3 días</span></h2>
+            
+            <p class="text-xl text-gray-400 font-medium mb-12">Durante 3 días en vivo, vas a trabajar en lo más importante:</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-16">
+                <div class="bg-brand-blue/10 py-6 px-8 rounded-2xl flex-1 border border-brand-blue/30">
+                    <i class="fa-solid fa-head-side-virus text-4xl text-brand-blue mb-4"></i>
+                    <h3 class="text-xl font-black text-white uppercase">Cómo<br>Piensas</h3>
+                </div>
+                <div class="bg-brand-blue/10 py-6 px-8 rounded-2xl flex-1 border border-brand-blue/30">
+                    <i class="fa-solid fa-code-branch text-4xl text-brand-blue mb-4"></i>
+                    <h3 class="text-xl font-black text-white uppercase">Cómo<br>Decides</h3>
+                </div>
+                <div class="bg-brand-blue/10 py-6 px-8 rounded-2xl flex-1 border border-brand-blue/30">
+                    <i class="fa-solid fa-rotate text-4xl text-brand-blue mb-4"></i>
+                    <h3 class="text-xl font-black text-white uppercase">Por qué<br>Repites</h3>
+                </div>
+            </div>
+            
+            <div class="text-2xl md:text-3xl font-black text-white uppercase">
+                No es teoría.<br>
+                <span class="text-brand-yellow">Es conciencia + herramientas + aplicación real.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 5 – ESTRUCTURA DE LAS 3 MASTERCLASS -->
+    <section class="py-24 px-6 bg-[#060e20] reveal">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-white">El mapa del <span class="text-brand-blue">despertar</span></h2>
+                <p class="text-lg text-gray-400 mt-4 font-medium">La estructura exacta que seguiremos día a día.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                
+                <!-- DÍA 1 -->
+                <div class="bg-brand-card rounded-3xl shadow-xl border border-white/10 border-t-8 border-t-brand-blue p-8 relative overflow-hidden transition-transform hover:-translate-y-2 duration-300">
+                    <div class="absolute top-0 right-0 bg-brand-blue text-white font-black text-6xl opacity-10 p-4 rounded-bl-3xl">1</div>
+                    <div class="text-brand-blue font-black uppercase tracking-widest text-sm mb-2">Día 1: Reconocer</div>
+                    <h3 class="text-2xl font-black text-white leading-tight mb-6 uppercase">Del piloto automático a la consciencia</h3>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-yellow mt-1"></i> Entender por qué repites patrones.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-yellow mt-1"></i> Identificar cómo tus decisiones inconscientes crean tu realidad.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-yellow mt-1"></i> Detectar cómo la duda te bloquea.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-yellow mt-1"></i> Descubrir el origen de tus creencias.</li>
+                    </ul>
+                    
+                    <div class="mt-auto bg-brand-blue/10 p-4 rounded-xl border border-brand-blue/30">
+                        <p class="text-sm font-bold text-brand-blue flex items-center gap-2"><i class="fa-solid fa-bullseye"></i> Meta:</p>
+                        <p class="font-black text-white text-sm uppercase mt-1">Vas a empezar a verte con claridad por primera vez.</p>
+                    </div>
+                </div>
+
+                <!-- DÍA 2 -->
+                <div class="bg-brand-card rounded-3xl shadow-xl border border-white/10 border-t-8 border-t-brand-yellow p-8 relative overflow-hidden transition-transform hover:-translate-y-2 duration-300">
+                    <div class="absolute top-0 right-0 bg-brand-yellow text-white font-black text-6xl opacity-10 p-4 rounded-bl-3xl">2</div>
+                    <div class="text-brand-yellow font-black uppercase tracking-widest text-sm mb-2">Día 2: Reprogramar</div>
+                    <h3 class="text-2xl font-black text-white leading-tight mb-6 uppercase">El poder de elegir diferente</h3>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-blue mt-1"></i> Cómo cambiar creencias limitantes.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-blue mt-1"></i> Cómo usar microacciones para salir del bucle.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-blue mt-1"></i> Cómo dejar de sabotearte sistemáticamente.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-brand-blue mt-1"></i> Cómo empezar a actuar desde la coherencia.</li>
+                    </ul>
+                    
+                    <div class="mt-auto bg-brand-yellow/10 p-4 rounded-xl border border-brand-yellow/30">
+                        <p class="text-sm font-bold text-brand-yellow flex items-center gap-2"><i class="fa-solid fa-bullseye"></i> Meta:</p>
+                        <p class="font-black text-white text-sm uppercase mt-1">Vas a entender cómo cambiar de verdad.</p>
+                    </div>
+                </div>
+
+                <!-- DÍA 3 -->
+                <div class="bg-brand-card rounded-3xl shadow-xl border border-white/10 border-t-8 border-t-gray-500 p-8 relative overflow-hidden transition-transform hover:-translate-y-2 duration-300">
+                    <div class="absolute top-0 right-0 bg-gray-500 text-white font-black text-6xl opacity-10 p-4 rounded-bl-3xl">3</div>
+                    <div class="text-gray-300 font-black uppercase tracking-widest text-sm mb-2">Día 3: Responder</div>
+                    <h3 class="text-2xl font-black text-white leading-tight mb-6 uppercase">Creador de tu propia vida</h3>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-gray-400 mt-1"></i> Entender la Responsabilidad radical.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-gray-400 mt-1"></i> Cómo tomar decisiones desde tu poder.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-gray-400 mt-1"></i> Cómo diseñar una vida totalmente alineada.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300 font-medium"><i class="fa-solid fa-circle-check text-gray-400 mt-1"></i> Cómo dejar de reaccionar y empezar a crear.</li>
+                    </ul>
+                    
+                    <div class="mt-auto bg-white/5 p-4 rounded-xl border border-white/10">
+                        <p class="text-sm font-bold text-gray-400 flex items-center gap-2"><i class="fa-solid fa-bullseye"></i> Meta:</p>
+                        <p class="font-black text-white text-sm uppercase mt-1">Vas a salir con una dirección clara.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 6 – BONUS Y REGALOS -->
+    <section class="py-20 px-6 bg-brand-dark border-y border-white/5 reveal">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <div class="w-full md:w-1/3 flex justify-center">
+                <div class="w-40 h-40 bg-brand-yellow/20 rounded-full flex items-center justify-center border-4 border-brand-yellow relative shadow-[0_0_30px_rgba(255,210,48,0.2)]">
+                    <i class="fa-solid fa-gift text-6xl text-brand-yellow"></i>
+                    <!-- Chispa decorativa -->
+                    <div class="absolute -top-2 -right-2 text-2xl text-brand-blue animate-bounce">✨</div>
+                </div>
+            </div>
+            <div class="w-full md:w-2/3 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-black uppercase text-white mb-6">Solo por estar dentro del grupo</h2>
+                
+                <div class="mb-6 space-y-4">
+                    <div class="bg-[#0a1835] p-4 rounded-xl shadow-sm border border-brand-yellow/30">
+                        <p class="text-xs font-bold text-brand-yellow uppercase tracking-widest mb-1">Antes del reto:</p>
+                        <p class="text-gray-300 font-medium">Recibirás contenido exclusivo, reflexiones en audio y activaciones diarias preparatorias.</p>
+                    </div>
+                    <div class="bg-[#0a1835] p-4 rounded-xl shadow-sm border border-brand-yellow/30">
+                        <p class="text-xs font-bold text-brand-yellow uppercase tracking-widest mb-1">Durante el reto:</p>
+                        <p class="text-gray-300 font-medium">Cada día que asistas en vivo recibirás un <strong class="text-white">regalo especial</strong> de alto valor.</p>
+                    </div>
+                </div>
+                
+                <p class="text-xl font-black text-white uppercase">No es solo entrar... <span class="text-brand-blue">es participar.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 7 – COMUNIDAD -->
+    <section class="py-20 md:py-28 px-6 bg-[#060e20] reveal">
+        <div class="max-w-4xl mx-auto text-center">
+            <i class="fa-solid fa-users-rays text-5xl text-brand-blue mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-black uppercase text-white mb-12">No lo vas a hacer solo</h2>
+            
+            <div class="bg-brand-dark p-8 md:p-12 rounded-3xl border border-brand-blue/30 flex flex-col md:flex-row gap-10 items-center text-left shadow-2xl">
+                <div class="w-full md:w-1/2">
+                    <p class="text-xl font-bold text-white mb-6">Dentro del grupo de WhatsApp tendrás:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-300 font-medium"><div class="w-8 h-8 rounded-full bg-brand-blue/20 text-brand-blue flex justify-center items-center shrink-0 border border-brand-blue/30"><i class="fa-solid fa-microphone"></i></div> Reflexiones diarias</li>
+                        <li class="flex items-center gap-3 text-gray-300 font-medium"><div class="w-8 h-8 rounded-full bg-brand-blue/20 text-brand-blue flex justify-center items-center shrink-0 border border-brand-blue/30"><i class="fa-solid fa-comments"></i></div> Interacción real</li>
+                        <li class="flex items-center gap-3 text-gray-300 font-medium"><div class="w-8 h-8 rounded-full bg-brand-blue/20 text-brand-blue flex justify-center items-center shrink-0 border border-brand-blue/30"><i class="fa-solid fa-people-group"></i></div> Personas en tu mismo proceso</li>
+                        <li class="flex items-center gap-3 text-gray-300 font-medium"><div class="w-8 h-8 rounded-full bg-brand-blue/20 text-brand-blue flex justify-center items-center shrink-0 border border-brand-blue/30"><i class="fa-solid fa-fire"></i></div> Activaciones para aplicar</li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2 bg-white/5 p-6 rounded-2xl shadow-lg border border-white/20 relative backdrop-blur-sm">
+                    <div class="absolute -top-4 -left-4 text-4xl text-brand-yellow"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="text-2xl font-black text-white uppercase leading-tight text-center mt-4">Este entorno es lo que hace que <span class="text-brand-yellow">realmente cambies.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 8 – URGENCIA -->
+    <section class="py-16 px-6 bg-brand-blue text-white text-center reveal relative overflow-hidden">
+        <!-- Textura suave -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-20"></div>
+        
+        <div class="max-w-3xl mx-auto flex flex-col items-center relative z-10">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-3 h-3 bg-brand-yellow rounded-full animate-ping"></div>
+                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-wider text-shadow">Esto empieza en breve</h2>
+                <div class="w-3 h-3 bg-brand-yellow rounded-full animate-ping"></div>
+            </div>
+            
+            <p class="text-lg md:text-xl font-medium mb-2 opacity-90">Las plazas son limitadas y el acceso al grupo se cerrará antes de empezar.</p>
+            <p class="text-xl md:text-2xl font-black text-brand-yellow uppercase mt-4 text-shadow-yellow">Si lo estás leyendo... aún estás a tiempo.</p>
+        </div>
+    </section>
+
+    <!-- BLOQUE 9 – CTA FINAL -->
+    <section class="py-24 px-6 bg-brand-dark text-center reveal">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-black uppercase text-white leading-tight mb-8">
+                Es tu momento de salir del <span class="text-brand-blue text-shadow">piloto automático</span>
+            </h2>
+            
+            <p class="text-xl md:text-2xl text-gray-300 font-medium mb-12">
+                Puedes seguir igual... <br>o empezar a entender y cambiar lo que te está frenando.
+            </p>
+            
+            <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-glow inline-flex flex-col items-center justify-center font-black px-10 py-6 rounded-2xl uppercase tracking-wide w-full md:w-auto mx-auto border border-brand-yellow">
+                <span class="text-xl md:text-3xl mb-2 flex items-center gap-3"><i class="fa-brands fa-whatsapp text-3xl md:text-4xl"></i> UNIRME AL GRUPO DE WHATSAPP</span>
+                <span class="text-xs md:text-sm font-semibold text-gray-800 tracking-widest">Acceso gratuito + inicio en pocos días</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#040b19] py-10 text-center border-t border-white/10 pb-28 md:pb-10">
+        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Responsabilidad Creadora</p>
+        <p class="text-xs text-gray-500 mt-2">© 2026. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- STICKY CTA MÓVIL (Fijo en la parte inferior solo en móviles) -->
+    <div class="md:hidden fixed bottom-0 left-0 w-full bg-[#040b19]/95 backdrop-blur-md border-t border-white/10 p-4 z-50 transform translate-y-full transition-transform duration-500" id="sticky-cta">
+        <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-glow flex items-center justify-center gap-2 font-black text-sm py-4 rounded-xl uppercase tracking-wide w-full border border-brand-yellow">
+            <i class="fa-brands fa-whatsapp text-xl"></i> UNIRME AL GRUPO AHORA
+        </a>
+    </div>
+
+    <!-- SCRIPT PARA ANIMACIONES DE SCROLL Y STICKY CTA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animaciones Reveal on Scroll
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100; // Distancia antes de que aparezca
+                
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger inicial
+
+            // Control del botón Sticky en Móvil (Aparece después de hacer scroll pasando el primer bloque)
+            const stickyCta = document.getElementById('sticky-cta');
+            const heroSection = document.querySelector('header');
+
+            window.addEventListener('scroll', () => {
+                if(window.innerWidth < 768) { // Solo en móvil
+                    const heroBottom = heroSection.getBoundingClientRect().bottom;
+                    if(heroBottom < 0) {
+                        stickyCta.classList.remove('translate-y-full'); // Muestra el botón
+                    } else {
+                        stickyCta.classList.add('translate-y-full'); // Oculta el botón
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

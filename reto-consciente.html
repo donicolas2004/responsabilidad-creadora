@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '990007067039400');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=990007067039400&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Automático a Consciente | Reto Gratuito</title>
+    
+    <!-- Tipografía Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans:['Montserrat', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            blue: '#0066FC',
+                            yellow: '#FFD230',
+                            dark: '#040b19',
+                            card: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #040b19; color: #ffffff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        
+        /* Animaciones de scroll (Slide Up / Fade In) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botón de Alta Conversión con Glow Premium */
+        .btn-cta {
+            background-color: #FFD230;
+            color: #040b19;
+            box-shadow: 0 0 25px rgba(255, 210, 48, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-cta:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 40px rgba(255, 210, 48, 0.8);
+        }
+        .btn-cta:active {
+            transform: translateY(1px);
+        }
+
+        /* Resaltado amarillo para palabras clave */
+        .highlight { color: #FFD230; }
+        
+        /* Efectos de texto y fondos oscuros */
+        .text-shadow { text-shadow: 0 4px 15px rgba(0, 102, 252, 0.6); }
+        .text-shadow-yellow { text-shadow: 0 4px 20px rgba(255, 210, 48, 0.5); }
+        .bg-gradient-radial { background: radial-gradient(circle at center, rgba(0, 102, 252, 0.2) 0%, rgba(4, 11, 25, 1) 70%); }
+
+        /* Espaciado para el botón sticky en móvil */
+        .pb-mobile-sticky { padding-bottom: 90px; }
+        @media (min-width: 768px) { .pb-mobile-sticky { padding-bottom: 0; } }
+    </style>
+</head>
+<body class="font-sans pb-mobile-sticky md:pb-0">
+
+    <!-- STICKY CTA PARA MÓVIL (Fijado siempre abajo para máxima conversión) -->
+    <div class="fixed bottom-0 left-0 w-full bg-[#040b19]/95 backdrop-blur-md border-t border-white/10 p-4 z-50 md:hidden shadow-[0_-5px_20px_rgba(0,0,0,0.6)]">
+        <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta flex items-center justify-center gap-2 w-full text-center py-4 rounded-xl font-black uppercase text-[15px] tracking-wide">
+            <i class="fa-brands fa-whatsapp text-2xl"></i> UNIRME AL GRUPO DE WHATSAPP
+        </a>
+    </div>
+
+    <!-- 🚀 BLOQUE 1: HERO (FILTRADO + DOLOR) -->
+    <header class="bg-gradient-radial relative pt-10 pb-20 md:pt-20 md:pb-24 px-6 overflow-hidden border-b border-white/5">
+        <!-- Textura de fondo sutil -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue opacity-15 rounded-full blur-[120px] transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-yellow opacity-10 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+            <!-- Microfiltro -->
+            <div class="inline-flex flex-col items-center bg-white/5 border border-white/10 rounded-2xl p-4 mb-8 shadow-lg backdrop-blur-sm mx-auto">
+                <p class="text-xs md:text-sm font-semibold text-gray-300"><span class="text-red-500 mr-1">❌</span> Esto NO es para curiosos</p>
+                <div class="w-full h-px bg-white/10 my-2"></div>
+                <p class="text-xs md:text-sm font-bold text-white"><span class="text-green-400 mr-1">✅</span> Es para personas que saben que se están saboteando y quieren cambiarlo</p>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-[1.05] text-white mb-8 text-shadow">
+                Si repites los mismos errores en tus <span class="highlight text-shadow-yellow">relaciones</span> y con el <span class="highlight text-shadow-yellow">dinero</span>... esto es para ti
+            </h1>
+            
+            <div class="max-w-2xl mx-auto mb-10">
+                <p class="text-xl md:text-2xl font-medium text-gray-300 leading-snug mb-2">No es mala suerte. No es falta de disciplina.</p>
+                <p class="text-2xl md:text-3xl font-black text-white mt-4">👉 Es que estás viviendo en <span class="highlight text-shadow-yellow">piloto automático</span>.</p>
+            </div>
+            
+            <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta inline-flex items-center justify-center gap-3 font-black text-lg md:text-xl px-8 py-5 rounded-xl uppercase tracking-wide w-full md:w-auto mt-2">
+                QUIERO SALIR DEL PILOTO AUTOMÁTICO <i class="fa-solid fa-bolt"></i>
+            </a>
+
+            <p class="mt-4 text-xs md:text-sm font-semibold text-brand-yellow tracking-wide max-w-lg mx-auto">
+                <i class="fa-solid fa-circle-exclamation mr-1"></i> Es fundamental unirse al grupo de WhatsApp para recibir los enlaces de las masterclass en vivo y no perderte nada del reto.
+            </p>
+            
+            <div class="mt-8 flex flex-col items-center justify-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest">
+                <p class="text-white bg-brand-blue/20 border border-brand-blue/30 px-4 py-2 rounded-full"><i class="fa-regular fa-calendar-check text-brand-yellow mr-2"></i> 24, 25 y 26 de abril – EN VIVO</p>
+                <p class="mt-2"><i class="fa-solid fa-gift text-brand-yellow mr-2"></i> Acceso gratuito por tiempo limitado</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🧠 BLOQUE 2: DOLOR PROFUNDO (IDENTIFICACIÓN) -->
+    <section class="py-20 md:py-24 px-6 bg-[#060e20] reveal border-b border-white/5 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                    Si esto te suena... <span class="highlight">necesitas ver esto</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Relaciones -->
+                <div class="bg-brand-card border border-white/10 p-8 rounded-3xl shadow-lg hover:border-brand-blue/50 transition-colors">
+                    <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-2xl mb-6 border border-red-500/20">
+                        <i class="fa-solid fa-heart-crack"></i>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase text-white mb-4">Relaciones</h3>
+                    <ul class="space-y-4 text-gray-300 font-medium text-sm">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Siempre das más de lo que recibes.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Te cuesta poner límites.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Atraes relaciones que te desgastan.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Te quedas por miedo a estar solo/a.</li>
+                    </ul>
+                </div>
+
+                <!-- Dinero -->
+                <div class="bg-brand-card border border-white/10 p-8 rounded-3xl shadow-lg hover:border-brand-blue/50 transition-colors">
+                    <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-2xl mb-6 border border-red-500/20">
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase text-white mb-4">Dinero</h3>
+                    <ul class="space-y-4 text-gray-300 font-medium text-sm">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> No cobras lo que vales realmente.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Sientes escasez constante.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Te saboteas justo cuando vas a crecer.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> El dinero te genera culpa o estrés.</li>
+                    </ul>
+                </div>
+
+                <!-- Patrones -->
+                <div class="bg-brand-card border border-white/10 p-8 rounded-3xl shadow-lg hover:border-brand-blue/50 transition-colors">
+                    <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-2xl mb-6 border border-red-500/20">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase text-white mb-4">Patrones</h3>
+                    <ul class="space-y-4 text-gray-300 font-medium text-sm">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Prometes cambiar pero repites lo mismo.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Sabes qué hacer... pero no lo haces.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-xmark text-red-500 mt-1"></i> Sientes que algo invisible te frena.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center bg-brand-blue/10 border border-brand-blue/30 p-8 rounded-2xl max-w-3xl mx-auto backdrop-blur-sm">
+                <p class="text-2xl font-black text-white uppercase">👉 No estás roto/a.</p>
+                <p class="text-2xl font-black text-brand-yellow uppercase mt-2">👉 Estás repitiendo patrones inconscientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⚡ BLOQUE 3: CONSECUENCIA -->
+    <section class="py-20 px-6 bg-[#02050b] reveal">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-black uppercase text-white mb-10 leading-tight">
+                Y si no cambias esto...
+            </h2>
+            
+            <div class="space-y-6 text-xl md:text-2xl font-semibold text-gray-400 mb-12">
+                <p>Vas a seguir repitiendo relaciones.</p>
+                <p>Vas a seguir en el mismo punto con el dinero.</p>
+                <p>Vas a seguir dudando de ti.</p>
+            </div>
+
+            <div class="w-16 h-1 bg-brand-yellow mx-auto mb-10"></div>
+
+            <p class="text-2xl md:text-3xl font-black uppercase text-white leading-snug">
+                No porque no puedas cambiar... <br>
+                <span class="highlight text-shadow-yellow mt-2 block">Sino porque no estás viendo el problema real.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- 🔥 BLOQUE 4 & 5: SOLUCIÓN Y LOS 3 DÍAS -->
+    <section class="py-24 px-6 bg-brand-blue relative overflow-hidden reveal">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-20"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-black uppercase text-white mb-6 text-shadow">Por eso he creado esto</h2>
+            
+            <p class="text-xl md:text-2xl text-blue-100 font-medium mb-16 max-w-3xl mx-auto">
+                Un reto gratuito de 3 días donde vas a entender cómo salir del piloto automático y empezar a tomar el control de tu vida.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <!-- Dia 1 -->
+                <div class="bg-[#040b19] p-8 rounded-3xl shadow-2xl border border-white/10">
+                    <h3 class="text-3xl font-black text-brand-yellow mb-2">Día 1:</h3>
+                    <p class="text-xl font-bold text-white uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Reconocer</p>
+                    <p class="text-lg text-gray-300 font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-arrow-right text-brand-blue"></i> Identificar patrones
+                    </p>
+                </div>
+
+                <!-- Dia 2 -->
+                <div class="bg-[#040b19] p-8 rounded-3xl shadow-2xl border border-white/10">
+                    <h3 class="text-3xl font-black text-brand-yellow mb-2">Día 2:</h3>
+                    <p class="text-xl font-bold text-white uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Reprogramar</p>
+                    <p class="text-lg text-gray-300 font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-arrow-right text-brand-blue"></i> Cambiar creencias
+                    </p>
+                </div>
+
+                <!-- Dia 3 -->
+                <div class="bg-[#040b19] p-8 rounded-3xl shadow-2xl border border-white/10">
+                    <h3 class="text-3xl font-black text-brand-yellow mb-2">Día 3:</h3>
+                    <p class="text-xl font-bold text-white uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Responder</p>
+                    <p class="text-lg text-gray-300 font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-arrow-right text-brand-blue"></i> Actuar con poder
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16">
+                <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta inline-flex items-center justify-center gap-3 font-black text-xl px-10 py-5 rounded-xl uppercase tracking-wide w-full md:w-auto">
+                    UNIRME AL RETO GRATIS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎁 BLOQUE 6: BENEFICIOS (MUY IMPORTANTE) -->
+    <section class="py-24 px-6 bg-[#060e20] reveal border-b border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-white">Lo que vas a <span class="highlight">conseguir</span></h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Relaciones -->
+                <div class="bg-brand-card border-t-4 border-brand-blue p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-black uppercase text-white mb-6">En tus Relaciones:</h3>
+                    <ul class="space-y-4 text-gray-300 font-medium text-sm">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> Poner límites sin sentir culpa.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> Dejar de repetir relaciones tóxicas.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> Sentirte suficiente sin buscar validación externa.</li>
+                    </ul>
+                </div>
+
+                <!-- Dinero -->
+                <div class="bg-brand-card border-t-4 border-brand-yellow p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-black uppercase text-white mb-6">Con el Dinero:</h3>
+                    <ul class="space-y-4 text-gray-300 font-medium text-sm">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-blue mt-1"></i> Romper creencias de escasez.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-blue mt-1"></i> Cobrar con seguridad lo que vales.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-blue mt-1"></i> Sostener el dinero sin autosabotaje.</li>
+                    </ul>
+                </div>
+
+                <!-- Mentalidad -->
+                <div class="bg-brand-card border-t-4 border-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-black uppercase text-white mb-6">En tu Mentalidad:</h3>
+                    <ul class="space-y-4 text-gray-300 font-medium text-sm">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-400 mt-1"></i> Tomar decisiones con claridad absoluta.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-400 mt-1"></i> Dejar de reaccionar desde el miedo.</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-400 mt-1"></i> Sentirte realmente en control de tu vida.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧠 BLOQUE 7: PARA QUIÉN ES / NO ES (FILTRO) -->
+    <section class="py-20 px-6 bg-[#040b19] reveal border-b border-white/5">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="bg-white/5 p-8 rounded-3xl border border-white/10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-brand-blue text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase">Filtro 1</div>
+                <h3 class="text-3xl font-black uppercase mb-8 text-white">Este reto <span class="highlight">SÍ ES</span> para ti si:</h3>
+                <ul class="space-y-5 text-gray-300 font-medium">
+                    <li class="flex items-start gap-4"><i class="fa-solid fa-arrow-right text-brand-blue mt-1 text-xl"></i> Estás cansado/a de repetirte y chocar con la misma pared.</li>
+                    <li class="flex items-start gap-4"><i class="fa-solid fa-arrow-right text-brand-blue mt-1 text-xl"></i> Quieres cambiar de verdad, no solo motivarte un rato.</li>
+                    <li class="flex items-start gap-4"><i class="fa-solid fa-arrow-right text-brand-blue mt-1 text-xl"></i> Estás dispuesto/a a hacer algo diferente y asumir responsabilidad.</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white/5 p-8 rounded-3xl border border-white/10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase">Filtro 2</div>
+                <h3 class="text-3xl font-black uppercase mb-8 text-white">Este reto <span class="text-red-500">NO ES</span> para ti si:</h3>
+                <ul class="space-y-5 text-gray-400 font-medium">
+                    <li class="flex items-start gap-4"><i class="fa-solid fa-xmark text-red-500 mt-1 text-xl"></i> Solo tienes curiosidad y no piensas aplicar nada.</li>
+                    <li class="flex items-start gap-4"><i class="fa-solid fa-xmark text-red-500 mt-1 text-xl"></i> Buscas "soluciones rápidas" o pastillas mágicas.</li>
+                    <li class="flex items-start gap-4"><i class="fa-solid fa-xmark text-red-500 mt-1 text-xl"></i> No quieres responsabilizarte de tus resultados actuales.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-16 text-center max-w-3xl mx-auto">
+            <h3 class="text-2xl md:text-3xl font-black uppercase text-brand-yellow mb-6">Solo por estar en vivo</h3>
+            <div class="inline-flex flex-col items-center justify-center bg-white/5 border border-brand-yellow/30 p-6 rounded-2xl">
+                <p class="text-white font-bold mb-2"><i class="fa-solid fa-gift text-brand-yellow mr-2"></i> Regalos exclusivos cada día.</p>
+                <p class="text-white font-bold mb-2"><i class="fa-solid fa-gift text-brand-yellow mr-2"></i> Acceso a contenido especial.</p>
+                <p class="text-white font-bold"><i class="fa-solid fa-gift text-brand-yellow mr-2"></i> Sorpresa final.</p>
+                <p class="mt-4 text-xs font-black text-red-500 uppercase tracking-widest bg-red-500/10 px-4 py-1 rounded-md">👉 Solo disponible si estás en directo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👤 BLOQUE 8: AUTORIDAD -->
+    <section class="py-24 px-6 bg-[#060e20] reveal">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/3">
+                <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/nicolas.jpg" alt="Nicolás" class="w-full rounded-2xl shadow-2xl border-4 border-white/10 object-cover aspect-[4/5] grayscale hover:grayscale-0 transition-all duration-500">
+            </div>
+            
+            <div class="w-full md:w-2/3">
+                <h2 class="text-3xl md:text-4xl font-black uppercase text-white mb-6">Quién está detrás de esto</h2>
+                <div class="w-12 h-1 bg-brand-yellow mb-8"></div>
+                
+                <ul class="space-y-4 text-lg font-semibold text-gray-300 mb-10">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-blue"></i> +50 personas acompañadas en procesos profundos.</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-blue"></i> +100 sesiones 1 a 1 de transformación.</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-blue"></i> Especialista en ansiedad, relaciones y autosabotaje.</li>
+                </ul>
+                
+                <div class="bg-brand-blue/10 p-8 rounded-2xl border-l-4 border-brand-blue shadow-sm">
+                    <p class="text-2xl font-black text-white uppercase leading-tight mb-2">👉 No soy diferente a ti.</p>
+                    <p class="text-2xl font-black text-brand-yellow uppercase leading-tight">👉 Solo dejé de repetir mis patrones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🚀 BLOQUE 9: CTA FINAL -->
+    <section class="py-24 px-6 bg-gradient-radial text-white text-center border-t border-white/10 reveal relative">
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-6xl font-black uppercase leading-tight mb-8 text-shadow">
+                Puedes seguir igual... <br>
+                <span class="highlight text-shadow-yellow">o empezar a cambiar hoy.</span>
+            </h2>
+            
+            <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta inline-block font-black text-xl md:text-2xl px-12 py-6 rounded-2xl uppercase tracking-wide w-full md:w-auto shadow-2xl border-2 border-transparent mt-4">
+                UNIRME AL RETO AHORA
+            </a>
+
+            <p class="mt-4 text-sm font-semibold text-brand-yellow tracking-wide max-w-lg mx-auto">
+                <i class="fa-solid fa-circle-exclamation mr-1"></i> Es fundamental unirse al grupo de WhatsApp para recibir los enlaces de las masterclass en vivo y no perderte nada del reto.
+            </p>
+            
+            <div class="mt-8 text-lg font-bold text-gray-300 flex flex-col items-center gap-3 uppercase tracking-widest">
+                <span class="bg-white/10 border border-white/20 px-6 py-2 rounded-full"><i class="fa-solid fa-hourglass-half text-brand-yellow mr-2"></i> Empieza el 24 de abril</span>
+                <span><i class="fa-solid fa-gift text-brand-yellow mr-2"></i> Regalos solo en vivo</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020610] py-8 text-center text-gray-600 text-xs font-medium uppercase tracking-widest border-t border-white/5 pb-28 md:pb-8">
+        <p>© 2026 Responsabilidad Creadora. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT PARA ANIMACIONES DE SCROLL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+                
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger inicial
+        });
+    </script>
+</body>
+</html>

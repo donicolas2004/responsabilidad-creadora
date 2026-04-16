@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '990007067039400');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=990007067039400&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana tus Relaciones | Reto Gratuito</title>
+    
+    <!-- Tipografía Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans:['Montserrat', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            blue: '#0066FC',
+                            yellow: '#FFD230',
+                            dark: '#040b19',
+                            card: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #040b19; color: #ffffff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        
+        /* Animaciones Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Botones CTA y Efectos Glow */
+        .btn-cta {
+            background-color: #FFD230;
+            color: #040b19;
+            box-shadow: 0 0 25px rgba(255, 210, 48, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-cta:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 40px rgba(255, 210, 48, 0.8);
+        }
+        .btn-cta-blue {
+            background-color: #0066FC;
+            color: #ffffff;
+            box-shadow: 0 0 25px rgba(0, 102, 252, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-cta-blue:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 102, 252, 0.8);
+        }
+
+        .text-shadow { text-shadow: 0 4px 15px rgba(0, 102, 252, 0.7); }
+        .text-shadow-yellow { text-shadow: 0 4px 20px rgba(255, 210, 48, 0.6); }
+        
+        .bg-gradient-radial { background: radial-gradient(circle at center, rgba(0, 102, 252, 0.15) 0%, rgba(4, 11, 25, 1) 70%); }
+
+        /* Contenedor responsivo para el video */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 1.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border: 2px solid rgba(255,255,255,0.1); background-color: #000; }
+        .video-container video, .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Estilos para el carrusel de testimonios sin barra de scroll visible */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .pb-mobile-sticky { padding-bottom: 100px; }
+        @media (min-width: 768px) { .pb-mobile-sticky { padding-bottom: 0; } }
+    </style>
+</head>
+<body class="font-sans pb-mobile-sticky md:pb-0">
+
+    <!-- STICKY CTA PARA MÓVIL -->
+    <div class="fixed bottom-0 left-0 w-full bg-[#040b19]/95 backdrop-blur-md border-t border-white/10 p-4 z-50 md:hidden shadow-[0_-5px_20px_rgba(0,0,0,0.6)]">
+        <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta flex items-center justify-center gap-2 w-full text-center py-4 rounded-xl font-black uppercase text-[14px] tracking-wide">
+            <i class="fa-brands fa-whatsapp text-2xl"></i> UNIRME AL GRUPO DEL RETO
+        </a>
+    </div>
+
+    <!-- 🚀 BLOQUE 1: HERO SECTION -->
+    <header class="bg-gradient-radial relative pt-12 pb-20 md:pt-20 md:pb-24 px-6 overflow-hidden border-b border-white/5">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue opacity-15 rounded-full blur-[120px] transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-yellow opacity-10 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+            
+            <h1 class="text-4xl md:text-6xl lg:text-[65px] font-black uppercase leading-[1.1] text-white mb-8 text-shadow">
+                Deja de repetir relaciones que te rompen y empieza a elegir desde <span class="text-brand-yellow text-shadow-yellow">tu valor</span>
+            </h1>
+            
+            <p class="text-lg md:text-2xl font-medium text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto">
+                Descubre en este reto gratuito de 3 días por qué sigues cayendo en los mismos patrones amorosos y cómo empezar a romperlos desde la raíz.
+            </p>
+            
+            <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta inline-flex items-center justify-center gap-3 font-black text-lg md:text-xl px-10 py-5 rounded-2xl uppercase tracking-wide w-full md:w-auto mt-2">
+                QUIERO ENTRAR AL RETO GRATIS
+            </a>
+            
+            <p class="mt-4 text-xs md:text-sm font-semibold text-brand-yellow tracking-wide max-w-lg mx-auto">
+                <i class="fa-solid fa-circle-exclamation mr-1"></i> Es fundamental unirse al grupo de WhatsApp para recibir los enlaces de las masterclass en vivo y no perderte nada del reto.
+            </p>
+
+            <div class="mt-6 font-bold text-gray-400">
+                <p class="uppercase tracking-widest text-sm"><i class="fa-solid fa-lock text-brand-yellow mr-2"></i> Accede gratis al grupo privado donde se darán las 3 clases en vivo</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🎥 BLOQUE 2: VIDEO VSL -->
+    <section class="py-20 md:py-24 px-6 bg-[#02050b] reveal relative">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <h2 class="text-2xl md:text-4xl font-black uppercase text-white mb-10 leading-tight">
+                Este reto puede ayudarte a entender <span class="text-brand-blue">por qué sigues repitiendo lo mismo en el amor</span>
+            </h2>
+
+            <!-- CONTENEDOR DEL VIDEO (VIMEO OPTIMIZADO AUTOPLAY MUTEADO) -->
+            <div class="video-container mb-10">
+                <iframe src="https://player.vimeo.com/video/1183786215?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="VSL" class="w-full h-full"></iframe>
+            </div>
+
+            <p class="text-lg md:text-xl font-medium text-gray-300 mb-8 max-w-2xl mx-auto">
+                Todo el contenido en vivo y los accesos se entregan dentro del grupo privado.
+            </p>
+
+            <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta-blue inline-flex items-center justify-center gap-3 font-black text-lg px-10 py-5 rounded-xl uppercase tracking-wide w-full md:w-auto">
+                QUIERO MI ACCESO AL GRUPO <i class="fa-brands fa-whatsapp text-2xl"></i>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- 💔 BLOQUE 3: IDENTIFICACIÓN DEL DOLOR -->
+    <section class="py-20 px-6 bg-[#040b19] border-y border-white/5 reveal">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                    Si esto te está pasando, <span class="text-brand-yellow text-shadow-yellow">este reto es para ti</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-lg hover:border-red-500/50 transition-colors">
+                    <i class="fa-solid fa-hand-holding-heart text-3xl text-red-500 mb-6"></i>
+                    <p class="text-lg font-semibold text-gray-200 leading-snug">Te cuesta poner límites y terminas aceptando menos de lo que mereces.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-lg hover:border-red-500/50 transition-colors">
+                    <i class="fa-solid fa-scale-unbalanced text-3xl text-red-500 mb-6"></i>
+                    <p class="text-lg font-semibold text-gray-200 leading-snug">Siempre das más amor del que recibes.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-lg hover:border-red-500/50 transition-colors">
+                    <i class="fa-solid fa-magnet text-3xl text-red-500 mb-6"></i>
+                    <p class="text-lg font-semibold text-gray-200 leading-snug">Atraes relaciones que terminan haciéndote daño.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-lg hover:border-red-500/50 transition-colors">
+                    <i class="fa-solid fa-rotate-left text-3xl text-red-500 mb-6"></i>
+                    <p class="text-lg font-semibold text-gray-200 leading-snug">Sabes que repites patrones, pero no sabes cómo salir.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-lg hover:border-red-500/50 transition-colors">
+                    <i class="fa-solid fa-link-slash text-3xl text-red-500 mb-6"></i>
+                    <p class="text-lg font-semibold text-gray-200 leading-snug">Tienes miedo a soltar aunque no seas feliz.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl shadow-lg hover:border-red-500/50 transition-colors">
+                    <i class="fa-solid fa-battery-quarter text-3xl text-red-500 mb-6"></i>
+                    <p class="text-lg font-semibold text-gray-200 leading-snug">Sientes que el amor te desgasta más de lo que te construye.</p>
+                </div>
+            </div>
+            
+            <div class="mt-14 text-center">
+                <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta inline-block font-black text-lg px-8 py-4 rounded-xl uppercase tracking-wide w-full md:w-auto">
+                    IDENTIFICO ESTO, QUIERO CAMBIARLO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌪️ BLOQUE 4: CONSECUENCIA EMOCIONAL -->
+    <section class="py-24 px-6 bg-[#060e20] reveal relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-900/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black uppercase text-white mb-10 leading-tight">
+                Seguir igual también <span class="text-red-500">tiene un precio</span>
+            </h2>
+            
+            <div class="space-y-8 text-xl md:text-3xl font-medium text-gray-300 leading-relaxed">
+                <p>Cada vez que repites el mismo patrón, refuerzas una forma de amar que te aleja de la relación que realmente deseas.</p>
+                
+                <p>Cada vez que callas, cedes o te conformas, sigues enseñándole a tu mente que eso es normal.</p>
+            </div>
+
+            <div class="w-16 h-1 bg-red-500 mx-auto my-12"></div>
+
+            <p class="text-2xl md:text-4xl font-black uppercase text-white leading-snug">
+                Y mientras no cambies el patrón, seguirá cambiando la persona... <br>
+                <span class="text-brand-yellow text-shadow-yellow mt-4 block">pero no el resultado.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ✨ BLOQUE 5: TRANSFORMACIÓN -->
+    <section class="py-24 px-6 bg-[#040b19] border-y border-white/5 reveal">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase text-white leading-tight">
+                    En estos 3 días empezarás a cambiar esto <span class="text-brand-blue text-shadow">desde dentro</span>
+                </h2>
+            </div>
+            
+            <div class="space-y-4 max-w-3xl mx-auto">
+                <div class="bg-brand-blue/10 border border-brand-blue/20 p-6 rounded-2xl flex items-center gap-5">
+                    <i class="fa-solid fa-circle-check text-2xl text-brand-yellow shrink-0"></i>
+                    <p class="text-lg font-semibold text-gray-200">Identificarás por qué sigues repitiendo relaciones que te dañan.</p>
+                </div>
+                <div class="bg-brand-blue/10 border border-brand-blue/20 p-6 rounded-2xl flex items-center gap-5">
+                    <i class="fa-solid fa-circle-check text-2xl text-brand-yellow shrink-0"></i>
+                    <p class="text-lg font-semibold text-gray-200">Entenderás cómo tus heridas influyen en tus elecciones.</p>
+                </div>
+                <div class="bg-brand-blue/10 border border-brand-blue/20 p-6 rounded-2xl flex items-center gap-5">
+                    <i class="fa-solid fa-circle-check text-2xl text-brand-yellow shrink-0"></i>
+                    <p class="text-lg font-semibold text-gray-200">Aprenderás a poner límites sin culpa.</p>
+                </div>
+                <div class="bg-brand-blue/10 border border-brand-blue/20 p-6 rounded-2xl flex items-center gap-5">
+                    <i class="fa-solid fa-circle-check text-2xl text-brand-yellow shrink-0"></i>
+                    <p class="text-lg font-semibold text-gray-200">Empezarás a elegir desde tu valor y no desde el miedo.</p>
+                </div>
+                <div class="bg-brand-blue/10 border border-brand-blue/20 p-6 rounded-2xl flex items-center gap-5">
+                    <i class="fa-solid fa-circle-check text-2xl text-brand-yellow shrink-0"></i>
+                    <p class="text-lg font-semibold text-gray-200">Dejarás de normalizar relaciones que no te hacen bien.</p>
+                </div>
+            </div>
+            
+            <div class="mt-14 text-center">
+                <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta inline-block font-black text-lg px-10 py-5 rounded-xl uppercase tracking-wide w-full md:w-auto">
+                    QUIERO EMPEZAR MI CAMBIO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⭐️ BLOQUE 6: TESTIMONIOS (CARRUSEL ESTRUCTURADO Y PREMIUM) -->
+    <section class="py-24 px-0 bg-[#060e20] reveal overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-black uppercase text-center text-white mb-12 leading-tight">
+                Esto ya está ayudando a otras personas a <span class="text-brand-yellow">cambiar sus relaciones</span>
+            </h2>
+        </div>
+
+        <!-- Contenedor del Carrusel -->
+        <div class="relative w-full max-w-[1500px] mx-auto group">
+            
+            <!-- Botón Izquierdo -->
+            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-brand-dark/80 text-white w-14 h-14 rounded-full hidden md:flex items-center justify-center border border-white/20 hover:bg-brand-blue transition-colors shadow-lg" onclick="scrollCarousel(-1)">
+                <i class="fa-solid fa-chevron-left text-xl"></i>
+            </button>
+
+            <!-- Pista del Carrusel: Contenedores Uniformes -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 px-6 hide-scrollbar scroll-smooth items-center" id="testimonio-carousel">
+                
+                <!-- Testimonio 1 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden group-card">
+                    <div class="absolute inset-0 bg-brand-blue/5 rounded-3xl opacity-0 group-card-hover:opacity-100 transition-opacity duration-300"></div>
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio1.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio2.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio3.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 4 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio4.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 5 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio5.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 6 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio6.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 7 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio7.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 8 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio8.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 9 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio9.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 10 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio10.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 11 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio11.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+                <!-- Testimonio 12 -->
+                <div class="snap-center shrink-0 w-[280px] md:w-[340px] h-[500px] md:h-[600px] bg-gradient-to-b from-[#0a1835] to-[#040b19] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center p-4 relative overflow-hidden">
+                    <img src="https://ticqgdblrszfcqpnmxsd.supabase.co/storage/v1/object/public/materiales/testimonio12.jpg" alt="Testimonio" class="w-full h-full object-contain rounded-xl relative z-10">
+                </div>
+
+            </div>
+
+            <!-- Botón Derecho -->
+            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-brand-dark/80 text-white w-14 h-14 rounded-full hidden md:flex items-center justify-center border border-white/20 hover:bg-brand-blue transition-colors shadow-lg" onclick="scrollCarousel(1)">
+                <i class="fa-solid fa-chevron-right text-xl"></i>
+            </button>
+            
+            <p class="text-center text-gray-500 text-sm md:hidden mt-4"><i class="fa-solid fa-arrows-left-right mr-2"></i> Desliza para ver más</p>
+        </div>
+    </section>
+
+    <!-- 🎁 BLOQUE 7: QUÉ RECIBEN EN EL GRUPO -->
+    <section class="py-20 px-6 bg-[#040b19] border-t border-white/5 reveal">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/3 flex justify-center">
+                <i class="fa-brands fa-whatsapp text-brand-yellow text-[150px] drop-shadow-[0_0_30px_rgba(255,210,48,0.5)]"></i>
+            </div>
+            
+            <div class="w-full md:w-2/3">
+                <h2 class="text-3xl md:text-4xl font-black uppercase text-white mb-8">Dentro del grupo privado tendrás acceso a:</h2>
+                
+                <ul class="space-y-5 text-lg font-semibold text-gray-300">
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-video text-brand-blue text-2xl w-8"></i> Las 3 clases en vivo</li>
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-pen-to-square text-brand-blue text-2xl w-8"></i> Ejercicios prácticos</li>
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-microphone text-brand-blue text-2xl w-8"></i> Reflexiones diarias</li>
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-gift text-brand-blue text-2xl w-8"></i> Regalos exclusivos para asistentes</li>
+                    <li class="flex items-center gap-4"><i class="fa-solid fa-key text-brand-blue text-2xl w-8"></i> Acceso directo a todo el proceso</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⏳ BLOQUE 8: URGENCIA -->
+    <section class="py-20 px-6 bg-brand-blue text-center reveal">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-black uppercase text-white mb-8 text-shadow">
+                El acceso al grupo se cerrará <span class="text-brand-yellow">antes de comenzar</span>
+            </h2>
+            
+            <p class="text-xl md:text-2xl font-medium text-white mb-6">
+                Si sientes que necesitas cambiar esto, entra ahora.
+            </p>
+            <p class="text-xl md:text-2xl font-black text-brand-yellow mb-12 uppercase tracking-wide">
+                No dejes esta decisión para después y vuelvas a repetir lo mismo.
+            </p>
+            
+            <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta inline-block font-black text-xl px-12 py-6 rounded-2xl uppercase tracking-wide w-full md:w-auto shadow-2xl">
+                QUIERO ENTRAR AL GRUPO AHORA
+            </a>
+
+            <p class="mt-4 text-xs md:text-sm font-semibold text-white tracking-wide max-w-lg mx-auto">
+                <i class="fa-solid fa-circle-exclamation mr-1"></i> Es fundamental unirse al grupo de WhatsApp para recibir los enlaces de las masterclass en vivo y no perderte nada del reto.
+            </p>
+        </div>
+    </section>
+
+    <!-- 🚀 BLOQUE 9: CTA FINAL -->
+    <section class="py-24 px-6 bg-gradient-radial text-center reveal border-t border-white/5">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-black uppercase text-white mb-8 leading-tight text-shadow">
+                Tu cambio empieza <span class="text-brand-yellow text-shadow-yellow">entrando al grupo</span>
+            </h2>
+            
+            <p class="text-lg md:text-xl font-medium text-gray-300 mb-12 leading-relaxed">
+                Las clases en vivo, los ejercicios y todos los accesos se compartirán <strong class="text-white">exclusivamente</strong> dentro del grupo privado.
+            </p>
+            
+            <a href="https://chat.whatsapp.com/KBizl0U8NsF1I7IvUEelDb?mode=gi_t" class="btn-cta-blue inline-flex items-center justify-center gap-3 font-black text-xl md:text-2xl px-10 py-6 rounded-2xl uppercase tracking-wide w-full md:w-auto shadow-2xl mb-6">
+                UNIRME GRATIS AL GRUPO PRIVADO <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            
+            <p class="text-base font-bold text-gray-400 uppercase tracking-widest">
+                Es gratis. Solo necesitas decidir entrar.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-[#020610] py-8 text-center text-gray-600 text-xs font-medium uppercase tracking-widest border-t border-white/5 pb-28 md:pb-8">
+        <p>© 2026 Responsabilidad Creadora. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT PARA ANIMACIONES Y CARRUSEL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animaciones Reveal on Scroll
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+                
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger inicial
+        });
+
+        // Función para los botones del carrusel de testimonios
+        function scrollCarousel(direction) {
+            const container = document.getElementById('testimonio-carousel');
+            // Desplaza aproximadamente el ancho de un contenedor + gap
+            const scrollAmount = window.innerWidth < 768 ? 304 : 364; 
+            container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

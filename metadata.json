@@ -1,0 +1,6 @@
+{
+  "name": "Código Expansión Consciente",
+  "description": "Premium interactive scrollytelling portal for high-performance self-development and private mentoring by Nicolás Osorio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
